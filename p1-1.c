@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 
 double calculateComission(int quarterlySale);
 
@@ -11,6 +10,7 @@ int main() {
         calculatedComission = calculateComission(salesValues[salesIndex]);
         printf("El valor calculado de comisión para la venta %d es %10.3f\n", salesValues[salesIndex], calculatedComission);
     }
+    return 0;
 }
 
 double calculateComission(int quarterlySale) {
