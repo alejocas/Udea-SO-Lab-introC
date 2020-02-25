@@ -5,3 +5,5 @@ gcc -Wall p3.c -o p3.out;
 gcc -Wall p4.c -o p4.out;
 gcc -Wall p5.c -o p5.out -lm;
 gcc -Wall p6.c -o p6.out -lm;
+gcc -Wall p7.c -o p7.out -lm;
+gcc -Wall p8.c -o p8.out -lm;
