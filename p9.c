@@ -66,15 +66,15 @@ void obtainAnswerMessages(char messages[][40], int failure) {
 
 void showResults(int successAnswers, int failedAnswers) {
     int numberOfAttempts = successAnswers + failedAnswers;
-    double successRate = successAnswers / numberOfAttempts;
-    double failureRate = failedAnswers / numberOfAttempts;
-    printf("-----------------------------------|\n");
-    printf("| Item     | Cantidad | Porcentaje |\n");
-    printf("-----------------------------------|\n");
-    printf("| Aciertos | %3d      | %3.2f      |\n", successAnswers, successRate * 100);
-    printf("| Fallos   | %3d      | %3.2f      |\n", failedAnswers, failureRate * 100);
-    printf("| Total    | %3d      | %3.2f      |\n", numberOfAttempts, (successRate + failureRate) * 100);
-    printf("-----------------------------------|\n");
+    double successRate = successAnswers / (double) numberOfAttempts;
+    double failureRate = failedAnswers / (double) numberOfAttempts;
+    printf("-------------------------------------------------\n");
+    printf("| Item    \t| Cantidad\t| Porcentaje\t|\n");
+    printf("-------------------------------------------------\n");
+    printf("| Aciertos\t| %3d     \t| %3.2f     \t|\n", successAnswers, successRate * 100);
+    printf("| Fallos  \t| %3d     \t| %3.2f     \t|\n", failedAnswers, failureRate * 100);
+    printf("| Total   \t| %3d     \t| %3.2f     \t|\n", numberOfAttempts, (successRate + failureRate) * 100);
+    printf("-------------------------------------------------\n");
     if(successRate < 0.75) {
         printf("Por favor pídele ayuda al instructor");
     }
