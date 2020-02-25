@@ -4,7 +4,7 @@
 #include <time.h>   //time()
 
 int generateRandomNumber(int lowerBound, int upperBound);
-char ** obtainAnswer(int success);
+void obtainAnswerMessages(char messages[][40], int success);
 int verifyAnswer(int realAnswer, int userAnswer);
 
 int main() {
@@ -37,7 +37,7 @@ int generateRandomNumber(int lowerBound, int upperBound) {
     return rand()%(M - m + 1) + m;
 }
 
-char ** obtainAnswer(int failure) {
+void obtainAnswerMessages(char messages[][40], int failure) {
     char successMessages[4][40] = {
         "Muy bien!\n",
         "Excelente!\n",
@@ -50,7 +50,6 @@ char ** obtainAnswer(int failure) {
         "No te rindas!\n",
         "No. Trata de nuevo\n"
     };
-    char messages[4][40];
     switch (failure) {
         case 0:
             memcpy(messages, successMessages, 4*40);
@@ -59,20 +58,19 @@ char ** obtainAnswer(int failure) {
             memcpy(messages, failureMessages, 4*40);
             break;
     }
-    return messages;
 }
 
 int verifyAnswer(int realAnswer, int userAnswer) {
     const int SUCCESS_CODE = 0, FAILURE_CODE = 1;
-    char **messages;
+    char messages[4][40];
     char *message;
     if(realAnswer == userAnswer) {
-        messages = obtainAnswer(SUCCESS_CODE);
+        obtainAnswerMessages(messages, SUCCESS_CODE);
         message = messages[generateRandomNumber(0,3)];
         printf(message);
         return SUCCESS_CODE;
     } else {
-        messages = obtainAnswer(FAILURE_CODE);
+        obtainAnswerMessages(messages, FAILURE_CODE);
         message = messages[generateRandomNumber(0,3)];
         printf(message);
         return FAILURE_CODE;
