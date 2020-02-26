@@ -30,7 +30,6 @@ int main() {
         printf("¿Desea continuar con más multiplicaciones?\n0. No\n1. Sí\n");
         scanf("%d", &running);
     }
-    printf("S: %d, F: %d\n", successAnswers, failedAnswers);
     showResults(successAnswers, failedAnswers);
 }
 
